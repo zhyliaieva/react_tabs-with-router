@@ -3,7 +3,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { TabsPage } from './components/TabsPage/TabsPage';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
@@ -63,6 +63,8 @@ export const App = () => {
               element={<h1 className="title">Page not found</h1>}
             />
           </Routes>
+
+           <Outlet />
         </div>
       </div>
     </>
