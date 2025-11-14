@@ -3,7 +3,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { TabsPage } from './components/TabsPage/TabsPage';
-import { Outlet, Route, Routes, useLocation } from 'react-router-dom';
+import {  Route, Routes, useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
@@ -51,11 +51,14 @@ export const App = () => {
 
             <Route path="/" element={<h1 className="title">Home page</h1>} />
 
-            <Route path="tabs" element={<TabsPage tabs={tabs} />}>
-              <Route
-                path=":tabId"
-                element={<TabsPage tabs={tabs} defaultTabId="tab-1" />}
-              />
+            <Route path="tabs" >
+              <Route  path="tabs"
+                element={<TabsPage tabs={tabs} defaultTabId="tab-1" />} />
+
+              <Route  index
+                element={<TabsPage tabs={tabs} defaultTabId="tab-1" />} />
+              <Route  path=":tabId"
+                element={<TabsPage tabs={tabs} defaultTabId="tab-1" />} />
             </Route>
 
             <Route
@@ -63,8 +66,6 @@ export const App = () => {
               element={<h1 className="title">Page not found</h1>}
             />
           </Routes>
-
-           <Outlet />
         </div>
       </div>
     </>

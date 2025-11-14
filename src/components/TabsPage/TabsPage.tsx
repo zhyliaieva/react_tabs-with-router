@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Tab } from '../../types/Tab';
+import { Outlet } from 'react-router-dom';
 
 interface Props {
   tabs: Tab[];
@@ -30,7 +31,7 @@ export const TabsPage: React.FC<Props> = ({ tabs, defaultTabId }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {activeTab ? activeTab.content : 'Please select a tab'}
+        {activeTab ? <Outlet /> : 'Please select a tab'}
       </div>
     </>
   );
